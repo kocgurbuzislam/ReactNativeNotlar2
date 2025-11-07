@@ -1,26 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SectionList, Image} from 'react-native';
-import { DATA } from "./Data"
+import { StyleSheet, Text, View, SectionList, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Navigator } from './Navigator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer>
       <StatusBar style="auto" />
-      <SectionList
-        sections={DATA ?? []}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (<Post text={item.text}
-           date={item.date.toDateString()} />)}
-        renderSectionHeader={({section}) =>(
-          <Section name={section.user} email={section.email} 
-          image={section.avatar}/>
-        )}
-      />
-    </View>
+
+      <Navigator />
+
+
+    </NavigationContainer>
   );
 }
 
-const Section = ({ image, name, email }) => {
+{/*
+
+  const Section = ({ image, name, email }) => {
   return (
     <View style={{
       width: "90%",
@@ -38,11 +35,7 @@ const Section = ({ image, name, email }) => {
       <View style={{ flex: 3, justifyContent:"center" }}>
         <Text style={{ fontWeight: "bold", fontSize: 20 }}>{name}</Text>
         <Text style={{ fontSize: 14, color: "gray" }}>{email}</Text>
-
-
       </View>
-
-
     </View>
   );
 }
@@ -57,16 +50,17 @@ const Post = ({ text, date }) => {
       backgroundColor: "#EAEAEA",
       borderRadius: 20
     }}>
-
       <Text style={{ width: "100%", textAlign: "right", fontWeight: "bold",
          marginRight: 5 }}>{date}</Text>
       <Text style={{ fontSize: 13, marginTop: 15 }}>
         {text}
       </Text>
-
     </View>
   );
 }
+
+*/}
+
 
 
 const styles = StyleSheet.create({
